@@ -22,9 +22,10 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class CollectionProductAdapter extends RecyclerView.Adapter<CollectionProductAdapter.CollectionProductViewHolder> {
+public class CollectionProductAdapter {
 
 
+    /*
     // Fields
     private List<List<CollectionProductAllocation>> allocations;
 
@@ -87,4 +88,6 @@ public class CollectionProductAdapter extends RecyclerView.Adapter<CollectionPro
         }
     }
 
+
+     */
 }

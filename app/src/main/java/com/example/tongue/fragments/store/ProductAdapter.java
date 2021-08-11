@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.tongue.R;
 import com.example.tongue.fragments.home.StoreAdapter;
 import com.example.tongue.models.Product;
+import com.example.tongue.models.ProductClickListener;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -20,8 +21,12 @@ import java.util.List;
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder>{
 
     private List<Product> products;
+    private ProductClickListener productClickListener;
 
-    public ProductAdapter(List<Product> products){this.products=products;}
+    public ProductAdapter(List<Product> products, ProductClickListener productClickListener){
+        this.productClickListener = productClickListener;
+        this.products=products;
+    }
 
     @NonNull
     @NotNull
@@ -44,39 +49,32 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     }
 
 
-    public static class ProductViewHolder extends RecyclerView.ViewHolder{
+    public class ProductViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         // Product Item View
         private ImageView productImage;
         private TextView productTitle;
         private TextView productDescription;
         private TextView productPrice;
+        private Product product;
 
-        public ProductViewHolder(@NonNull @NotNull View itemView) {
+        public ProductViewHolder(@NonNull @NotNull View itemView){
             super(itemView);
             productImage = (ImageView) itemView.findViewById(R.id.store_variant_product_item_productImage);
             productTitle = (TextView) itemView.findViewById(R.id.store_variant_product_item_title);
             productDescription = (TextView) itemView.findViewById(R.id.store_variant_product_item_description);
             productPrice = (TextView) itemView.findViewById(R.id.store_variant_product_item_price);
+            itemView.setOnClickListener(this);
         }
 
-        public ImageView getProductImage() {
-            return productImage;
+
+        @Override
+        public void onClick(View v) {
+            productClickListener.onProductClicked(product,v);
         }
 
-        public TextView getProductTitle() {
-            return productTitle;
-        }
 
-        public TextView getProductDescription() {
-            return productDescription;
-        }
-
-        public TextView getProductPrice() {
-            return productPrice;
-        }
     }
-
 
 
     }

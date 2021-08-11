@@ -4,10 +4,12 @@ import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.core.widget.NestedScrollView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -30,13 +32,13 @@ public class CollectionAdapter extends RecyclerView.Adapter<CollectionAdapter.Co
     // Fields
     private List<List<CollectionProductAllocation>> productAllocationsList;
     private int currentPosition=0;
-    //public ProductClickListener productClickListener;
+    public ProductClickListener productClickListener;
 
     // Constructor
-    public CollectionAdapter(List<List<CollectionProductAllocation>> productAllocationsList/*,
-                             ProductClickListener productClickListener*/){
+    public CollectionAdapter(List<List<CollectionProductAllocation>> productAllocationsList,
+                             ProductClickListener productClickListener){
         this.productAllocationsList = productAllocationsList;
-        //this.productClickListener = productClickListener;
+        this.productClickListener = productClickListener;
     }
 
     @Override
@@ -69,12 +71,12 @@ public class CollectionAdapter extends RecyclerView.Adapter<CollectionAdapter.Co
 
 
 
-    public class CollectionViewHolder extends RecyclerView.ViewHolder /*implements View.OnClickListener*/ {
+    public class CollectionViewHolder extends RecyclerView.ViewHolder {
 
         // Fields
         private TextView title;
         private RecyclerView productsRecyclerView;
-        //private Product product;
+        private Product product;
         private Collection collection;
 
         @RequiresApi(api = Build.VERSION_CODES.N)
@@ -84,23 +86,15 @@ public class CollectionAdapter extends RecyclerView.Adapter<CollectionAdapter.Co
             productsRecyclerView = itemView.findViewById(R.id.store_variant_collection_recyclerview);
             LinearLayoutManager manager = new LinearLayoutManager(itemView.getContext());
             manager.setOrientation(RecyclerView.VERTICAL);
-
             List<Product> products = productAllocations
                     .stream().map(CollectionProductAllocation::getProduct).collect(Collectors.toList());
 
             productsRecyclerView.setNestedScrollingEnabled(false);
-            ProductAdapter productAdapter = new ProductAdapter(products);
+            ProductAdapter productAdapter = new ProductAdapter(products,productClickListener);
             productsRecyclerView.setLayoutManager(manager);
             productsRecyclerView.setAdapter(productAdapter);
         }
 
 
-        /*
-        @Override
-        public void onClick(View v) {
-            productClickListener.onProductClicked(product,v);
-        }
-
-         */
     }
 }

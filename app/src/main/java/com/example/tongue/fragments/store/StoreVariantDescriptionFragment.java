@@ -1,5 +1,6 @@
 package com.example.tongue.fragments.store;
 
+import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -27,10 +28,13 @@ import com.example.tongue.models.CollectionProductAllocation;
 import com.example.tongue.models.CollectionProductAllocation;
 import com.example.tongue.models.CollectionScrollChange;
 import com.example.tongue.models.Product;
+import com.example.tongue.models.ProductClickListener;
 import com.example.tongue.models.SectionClickListener;
 import com.example.tongue.testingdata.CollectionGenerators;
 import com.example.tongue.testingdata.CollectionProductAllocationGenerator;
 import com.example.tongue.testingdata.ProductGenerators;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -40,6 +44,7 @@ public class StoreVariantDescriptionFragment extends Fragment {
     private Button lastActivatedButton;
     private HomeViewModel homeViewModel;
     private StoreVariantFragmentdescBinding binding;
+    private OnProductSelectedListener listener;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -67,6 +72,7 @@ public class StoreVariantDescriptionFragment extends Fragment {
         SectionAdapter sectionAdapter = new SectionAdapter(collections, new SectionClickListener() {
             @Override
             public void onSectionClicked(Collection collection, View view) {
+                //binding.storeVariantHomeToolbar.setVisibility(View.INVISIBLE);
                 binding.storeVariantHomeRecyclerView.scrollToPosition(collection.getRelativePosition());
             }
         });
@@ -78,7 +84,12 @@ public class StoreVariantDescriptionFragment extends Fragment {
         LinearLayoutManager manager = new LinearLayoutManager(this.getContext());
 
         manager.setOrientation(RecyclerView.VERTICAL);
-        CollectionAdapter adapter = new CollectionAdapter(allocationsList);
+        CollectionAdapter adapter = new CollectionAdapter(allocationsList, new ProductClickListener() {
+            @Override
+            public void onProductClicked(Product product, View view) {
+                listener.onProductSelected(product);
+            }
+        });
         //CollectionProductAdapter adapter = new CollectionProductAdapter(allocationsList);
         binding.storeVariantHomeRecyclerView.setLayoutManager(manager);
         binding.storeVariantHomeRecyclerView.setAdapter(adapter);
@@ -127,6 +138,20 @@ public class StoreVariantDescriptionFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    @Override
+    public void onAttach(@NonNull @NotNull Context context) {
+        super.onAttach(context);
+        try {
+            listener = (OnProductSelectedListener) context;
+        } catch (ClassCastException e){
+            throw new ClassCastException(context.toString()+ "must implement ProductSelectedListener");
+        }
+    }
+
+    public interface OnProductSelectedListener {
+        public void onProductSelected(Product product);
     }
 
 }
