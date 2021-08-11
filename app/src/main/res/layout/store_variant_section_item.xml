@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:background="@color/tongueLightGrey"
+    android:orientation="vertical"
+    android:paddingTop="12dp"
+    android:paddingEnd="12dp"
+    android:paddingBottom="11dp"
+    android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/store_variant_section_button"
+            android:layout_width="wrap_content"
+            android:text="hamburguesas"
+
+            android:textSize="9sp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:fontFamily="sans-serif-medium"
+            android:background="@drawable/collection_button_selector"
+            android:layout_height="wrap_content"/>
+
+</LinearLayout>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/store_variant_product_item"
+    android:orientation="horizontal"
+    android:background="@color/white"
+    android:paddingTop="10dp"
+    android:paddingLeft="10dp"
+
+    android:paddingRight="10dp"
+    android:paddingBottom="10dp"
+    android:layout_height="wrap_content">
+
+
+        <LinearLayout
+
+            android:layout_width="220dp"
+            android:layout_gravity="center_vertical"
+            android:paddingRight="10dp"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/store_variant_product_item_title"
+                android:layout_width="wrap_content"
+                android:textColor="@color/black"
+                android:layout_height="wrap_content"
+                android:text="Pizza Napolitana"
+                android:textSize="19sp"
+                android:fontFamily="sans-serif-condensed"
+                />
+            <TextView
+                android:id="@+id/store_variant_product_item_description"
+                android:layout_width="wrap_content"
+                android:paddingTop="1dp"
+                android:maxLines="3"
+                android:layout_height="wrap_content"
+                android:text="Pizza napolitana con peperoni, pedazos de carne molida y salsa de la casa"
+                android:textSize="12sp"
+                />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:paddingTop="1dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/store_variant_product_item_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="Precio "
+                    />
+
+                <TextView
+                    android:id="@+id/store_variant_product_item_price2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/tongueGreen"
+                    android:text="$5.50"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/store_variant_product_item_productImage"
+        android:layout_width="80dp"
+        android:layout_gravity="center_vertical"
+
+        android:background="@drawable/pizza"
+        android:layout_height="80dp"/>
+
+</LinearLayout>
