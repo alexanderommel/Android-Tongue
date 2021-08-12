@@ -1,26 +1,4 @@
-package com.example.tongue.fragments.store;
-
-import android.os.Build;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.tongue.R;
-import com.example.tongue.fragments.home.CategoryAdapter;
-import com.example.tongue.models.CollectionProductAllocation;
-import com.example.tongue.models.Product;
-
-import org.jetbrains.annotations.NotNull;
-
-import java.util.List;
-import java.util.stream.Collectors;
+package com.example.tongue.adapters;
 
 public class CollectionProductAdapter {
 

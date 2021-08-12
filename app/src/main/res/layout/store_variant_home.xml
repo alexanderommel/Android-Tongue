@@ -12,9 +12,8 @@
         android:layout_height="32dp"/>
 
 
-    <fragment
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/store_variant_home_fragment"
-        android:name="com.example.tongue.fragments.store.StoreVariantDescriptionFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

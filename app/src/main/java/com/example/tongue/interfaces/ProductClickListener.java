@@ -1,6 +1,8 @@
-package com.example.tongue.models;
+package com.example.tongue.interfaces;
 
 import android.view.View;
+
+import com.example.tongue.models.Product;
 
 public interface ProductClickListener {
 

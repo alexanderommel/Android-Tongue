@@ -1,7 +1,6 @@
-package com.example.tongue.fragments.store;
+package com.example.tongue.fragments;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -19,25 +17,21 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tongue.R;
-import com.example.tongue.databinding.FragmentHomeBinding;
 import com.example.tongue.databinding.StoreVariantFragmentdescBinding;
-import com.example.tongue.fragments.home.HomeViewModel;
-import com.example.tongue.fragments.home.StoreAdapter;
+import com.example.tongue.viewmodels.HomeViewModel;
+import com.example.tongue.adapters.CollectionAdapter;
+import com.example.tongue.adapters.SectionAdapter;
 import com.example.tongue.models.Collection;
 import com.example.tongue.models.CollectionProductAllocation;
-import com.example.tongue.models.CollectionProductAllocation;
-import com.example.tongue.models.CollectionScrollChange;
 import com.example.tongue.models.Product;
-import com.example.tongue.models.ProductClickListener;
-import com.example.tongue.models.SectionClickListener;
+import com.example.tongue.interfaces.ProductClickListener;
+import com.example.tongue.interfaces.SectionClickListener;
 import com.example.tongue.testingdata.CollectionGenerators;
 import com.example.tongue.testingdata.CollectionProductAllocationGenerator;
-import com.example.tongue.testingdata.ProductGenerators;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class StoreVariantDescriptionFragment extends Fragment {
 

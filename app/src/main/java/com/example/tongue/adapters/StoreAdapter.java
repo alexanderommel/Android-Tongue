@@ -1,4 +1,4 @@
-package com.example.tongue.fragments.home;
+package com.example.tongue.adapters;
 
 import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
@@ -9,29 +9,25 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.lifecycle.MutableLiveData;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tongue.R;
 
 import com.example.tongue.models.StoreVariant;
-import com.example.tongue.models.storeClickListener;
+import com.example.tongue.interfaces.StoreClickListener;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import kotlin.collections.AbstractMutableList;
 
 public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.StoreViewHolder> {
 
     // Fields
     private List<StoreVariant> storeVariants;
-    private storeClickListener storeClickListener;
+    private StoreClickListener storeClickListener;
 
-    public StoreAdapter(List<StoreVariant> storeVariants, storeClickListener listener){
+    public StoreAdapter(List<StoreVariant> storeVariants, StoreClickListener listener){
         this.storeVariants = storeVariants;
         this.storeClickListener=listener;
     }

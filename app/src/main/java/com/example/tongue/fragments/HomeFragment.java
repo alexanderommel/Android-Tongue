@@ -1,4 +1,4 @@
-package com.example.tongue.fragments.home;
+package com.example.tongue.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,18 +11,17 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tongue.activities.StoreVariantHomeActivity;
-import com.example.tongue.databinding.ActivityHomeBinding;
 import com.example.tongue.databinding.FragmentHomeBinding;
+import com.example.tongue.viewmodels.HomeViewModel;
+import com.example.tongue.adapters.StoreAdapter;
 import com.example.tongue.models.StoreVariant;
-import com.example.tongue.models.storeClickListener;
+import com.example.tongue.interfaces.StoreClickListener;
 import com.example.tongue.testingdata.StoreVariantGenerator;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class HomeFragment extends Fragment {
@@ -52,7 +51,7 @@ public class HomeFragment extends Fragment {
         LinearLayoutManager manager = new LinearLayoutManager(this.getContext());
         manager.setOrientation(LinearLayoutManager.VERTICAL);
         binding.fragmentHomeRecyclerview.setLayoutManager(manager);
-        adapter = new StoreAdapter(storeVariants, new storeClickListener() {
+        adapter = new StoreAdapter(storeVariants, new StoreClickListener() {
             @Override
             public void onStoreVariantClicked(StoreVariant storeVariant, View view) {
                 //System.out.println("binding: "+binding.fragmentHomeRecyclerview.getChildPosition((View) view.getParent()));

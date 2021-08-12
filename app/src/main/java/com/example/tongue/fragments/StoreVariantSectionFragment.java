@@ -1,4 +1,4 @@
-package com.example.tongue.fragments.store;
+package com.example.tongue.fragments;
 
 import androidx.fragment.app.Fragment;
 

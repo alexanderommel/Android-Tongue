@@ -1,18 +1,17 @@
-package com.example.tongue.fragments.home;
+package com.example.tongue.viewmodels;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class HomeViewModel extends ViewModel {
+public class ProductViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public HomeViewModel(){
+    public ProductViewModel(){
         mText = new MutableLiveData<>();
         mText.setValue("Hey guys");
     }
 
     public LiveData<String> getText(){ return mText;}
-
 }

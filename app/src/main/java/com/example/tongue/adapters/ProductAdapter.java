@@ -1,4 +1,4 @@
-package com.example.tongue.fragments.store;
+package com.example.tongue.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,9 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tongue.R;
-import com.example.tongue.fragments.home.StoreAdapter;
 import com.example.tongue.models.Product;
-import com.example.tongue.models.ProductClickListener;
+import com.example.tongue.interfaces.ProductClickListener;
 
 import org.jetbrains.annotations.NotNull;
 

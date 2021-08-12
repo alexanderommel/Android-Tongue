@@ -1,30 +1,25 @@
-package com.example.tongue.fragments.store;
+package com.example.tongue.adapters;
 
 import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
-import androidx.appcompat.widget.LinearLayoutCompat;
-import androidx.core.widget.NestedScrollView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tongue.R;
 import com.example.tongue.models.Collection;
 import com.example.tongue.models.CollectionProductAllocation;
-import com.example.tongue.models.CollectionScrollChange;
 import com.example.tongue.models.Product;
-import com.example.tongue.models.ProductClickListener;
+import com.example.tongue.interfaces.ProductClickListener;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 public class CollectionAdapter extends RecyclerView.Adapter<CollectionAdapter.CollectionViewHolder>{

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:background="@color/tongueLightGrey"
+        android:padding="10dp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/product_modifier_groupname"
+            android:layout_width="wrap_content"
+            android:textSize="13sp"
+            android:paddingLeft="10dp"
+            android:fontFamily="sans-serif-medium"
+            android:maxEms="12"
+            android:paddingTop="5dp"
+            android:gravity="center_vertical"
+            android:layout_alignParentStart="true"
+            android:text="Recargue su pizza"
+            android:layout_height="wrap_content"/>
+        <Space
+            android:layout_width="30dp"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:id="@+id/product_modifier_type"
+            android:layout_width="120dp"
+            android:textSize="13sp"
+            android:background="@drawable/white_button"
+            android:padding="7dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp"
+            android:paddingLeft="15dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:layout_gravity="center_vertical"
+            android:text="Opcional"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/product_modifier_recyclerview"
+        android:layout_width="match_parent"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="10dp"
+        android:layout_height="wrap_content"/>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

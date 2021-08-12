@@ -1,21 +1,18 @@
-package com.example.tongue.fragments.store;
+package com.example.tongue.adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
 import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tongue.R;
 import com.example.tongue.models.Collection;
-import com.example.tongue.models.SectionClickListener;
+import com.example.tongue.interfaces.SectionClickListener;
 
 import org.jetbrains.annotations.NotNull;
 

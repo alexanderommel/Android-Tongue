@@ -1,4 +1,4 @@
-package com.example.tongue.fragments.settings;
+package com.example.tongue.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.tongue.databinding.FragmentHomeBinding;
+import com.example.tongue.viewmodels.SettingsViewModel;
 
 public class SettingsFragment  extends Fragment {
 

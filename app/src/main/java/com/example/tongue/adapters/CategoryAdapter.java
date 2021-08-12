@@ -1,4 +1,4 @@
-package com.example.tongue.fragments.home;
+package com.example.tongue.adapters;
 
 import android.annotation.SuppressLint;
 import android.view.LayoutInflater;

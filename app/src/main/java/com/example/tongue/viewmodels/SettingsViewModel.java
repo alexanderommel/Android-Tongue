@@ -1,4 +1,4 @@
-package com.example.tongue.fragments.settings;
+package com.example.tongue.viewmodels;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
