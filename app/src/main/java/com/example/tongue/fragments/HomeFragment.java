@@ -34,6 +34,7 @@ public class HomeFragment extends Fragment {
     public FragmentHomeBinding binding;
     private StoreAdapter adapter;
     private OnStoreSelectedListener listener;
+    private OnMenuImageClickListener menuListener;
 
 
     @Override
@@ -43,12 +44,22 @@ public class HomeFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState){
-        // Usual instantiation
+
+        // Init
         homeViewModel =
                 new ViewModelProvider(this).get(HomeViewModel.class);
 
         binding = FragmentHomeBinding.inflate(inflater, (ViewGroup) container, false);
         View root = binding.getRoot();
+        binding.fragmentHomeCheckoutLayout.setVisibility(View.GONE);
+
+        // MenuImage click listener
+        binding.appHomeMenuIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                menuListener.onMenuImageClicked();
+            }
+        });
 
         // Store variant recycler view click listener
         List<StoreVariant> storeVariants = StoreVariantGenerator.getStores(20);
@@ -71,7 +82,7 @@ public class HomeFragment extends Fragment {
             System.out.println("called788");
             binding.fragmentHomeCheckoutLayout.setVisibility(View.VISIBLE);
         });
-        //binding.fragmentHomeCheckoutLayout.setVisibility(View.GONE);
+
 
         return root;
     }
@@ -90,10 +101,19 @@ public class HomeFragment extends Fragment {
         } catch (ClassCastException e){
             throw new ClassCastException(context.toString()+ "must implement OnStoreSelectedListener");
         }
+        try {
+            menuListener = (HomeFragment.OnMenuImageClickListener) context;
+        } catch (ClassCastException e){
+            throw new ClassCastException(context.toString()+ "must implement OnMenuImageClickListener");
+        }
     }
 
     public interface OnStoreSelectedListener {
         public void onStoreSelected(StoreVariant storeVariant);
+    }
+
+    public interface OnMenuImageClickListener {
+        public void onMenuImageClicked();
     }
 
 }

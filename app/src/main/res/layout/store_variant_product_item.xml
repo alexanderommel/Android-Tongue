@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/store_variant_product_layout"
     android:orientation="horizontal"
     android:background="@color/white"
-    android:paddingTop="10dp"
+    android:paddingTop="15dp"
+    android:paddingEnd="10dp"
     android:paddingLeft="10dp"
-    android:paddingRight="10dp"
-    android:paddingBottom="10dp"
+    android:paddingBottom="15dp"
     android:layout_height="wrap_content">
 
 
         <LinearLayout
 
-            android:layout_width="220dp"
+            android:layout_width="wrap_content"
+            android:layout_marginEnd="90dp"
             android:layout_gravity="center_vertical"
             android:paddingRight="10dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
             android:orientation="vertical"
             android:layout_height="wrap_content">
             <TextView
@@ -32,10 +35,11 @@
                 android:id="@+id/store_variant_product_item_description"
                 android:layout_width="wrap_content"
                 android:paddingTop="1dp"
+                android:textAlignment="textStart"
                 android:maxLines="3"
                 android:layout_height="wrap_content"
                 android:text="Pizza napolitana con peperoni, pedazos de carne molida y salsa de la casa"
-                android:textSize="12sp"
+                android:textSize="11sp"
                 />
             <LinearLayout
                 android:orientation="horizontal"
@@ -66,9 +70,10 @@
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/store_variant_product_item_productImage"
         android:layout_width="80dp"
+        android:layout_alignParentEnd="true"
         android:layout_gravity="center_vertical"
-
+        android:layout_centerVertical="true"
         android:background="@drawable/pizza"
         android:layout_height="80dp"/>
 
-</LinearLayout>
+</RelativeLayout>

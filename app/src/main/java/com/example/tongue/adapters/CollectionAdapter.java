@@ -53,10 +53,8 @@ public class CollectionAdapter extends RecyclerView.Adapter<CollectionAdapter.Co
 
     @Override
     public void onBindViewHolder(@NonNull @NotNull CollectionViewHolder holder, int position) {
-        System.out.println(position);
         holder.title
                 .setText(productAllocationsList.get(position).get(0).getCollection().getTitle());
-
     }
 
     @Override

@@ -8,12 +8,12 @@
     tools:showIn="@layout/app_home"
     >
 
-    <fragment
-        android:id="@+id/nav_host_fragment_container"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/nav_host_fragment"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingTop="10dp"
+        app:defaultNavHost="true"
         app:navGraph="@navigation/home_navigation" />
 
 </LinearLayout>

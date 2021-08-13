@@ -34,6 +34,7 @@ public class ProductFragment extends Fragment {
     private ProductViewModel productViewModel;
     private OnLineItemAddedListener listener;
     private SharedCartViewModel model;
+    private int quantity=1;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState){
@@ -45,6 +46,7 @@ public class ProductFragment extends Fragment {
         binding = ProductFragmentBinding.inflate(inflater, (ViewGroup) container, false);
         View root = binding.getRoot();
 
+
         // !!Temporal until Development of Tongue ViewModels!! (Bad Practice)
         List<List<Modifier>> modifiers = ModifiersGenerator.getModifierListsFromGroups();
 
@@ -53,6 +55,31 @@ public class ProductFragment extends Fragment {
         GroupModifierAdapter adapter = new GroupModifierAdapter(modifiers);
         binding.productFragmentRecyclerView.setLayoutManager(manager);
         binding.productFragmentRecyclerView.setAdapter(adapter);
+
+        // Increase Button Click Listener
+        //binding.productFragmentIncreaseButton.bringToFront();
+        binding.productFragmentIncreaseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (quantity<=10){
+                    quantity++;
+                    binding.productFragmentQuantityTextView.setText(String.valueOf(quantity));
+                }
+            }
+        });
+
+        // Decrease Button Click Listener
+        //binding.productFragmentReduceButton.bringToFront();
+        binding.productFragmentReduceButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (quantity>=2){
+                    quantity--;
+                    binding.productFragmentQuantityTextView.setText(String.valueOf(quantity));
+                }
+            }
+        });
+
 
         // AddProduct Click Listener
         model = new ViewModelProvider(requireActivity()).get(SharedCartViewModel.class);

@@ -23,12 +23,10 @@ import com.example.tongue.viewmodels.SharedCartViewModel;
 import com.example.tongue.viewmodels.SharedCheckoutViewModel;
 
 public class StoreVariantHomeActivity extends AppCompatActivity
-        implements StoreVariantDescriptionFragment.OnProductSelectedListener,
+        implements
         ProductFragment.OnLineItemAddedListener{
 
     private StoreVariantHomeBinding binding;
-    private RecyclerView recyclerView;
-    private Cart cart; // Temporal until development of Tongue ViewModels
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,9 +35,6 @@ public class StoreVariantHomeActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         binding = StoreVariantHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
-        // !!Temporal until development of Tongue ViewModels!!
-        Cart cart = new Cart();
 
         // ViewModel
 
@@ -55,27 +50,7 @@ public class StoreVariantHomeActivity extends AppCompatActivity
     }
 
     @Override
-    public void onProductSelected(Product product) {
-        Fragment productFragment = new ProductFragment();
-        FragmentManager manager = getSupportFragmentManager();
-        manager.beginTransaction()
-                .setCustomAnimations(
-                        R.anim.slide_in,  // enter
-                        R.anim.fade_out,  // exit
-                        R.anim.fade_in,   // popEnter
-                        R.anim.slide_out  // popExit
-                )
-                .replace(R.id.store_variant_home_fragment, productFragment)
-                .addToBackStack(null).commit();
-    }
-
-    @Override
     public void OnLineItemAdded(LineItem lineItem) {
-        if (cart==null){
-            cart = new Cart();
-        }
-        System.out.println("CORRECT CALLX");
-        getFragmentManager().popBackStackImmediate();
     }
 
 }

@@ -12,9 +12,9 @@ public class GroupModifier {
 
     private String context;
 
-    private int maximumActiveModifiers;
+    private int maximumActiveModifiers=1;
 
-    private int minimumActiveModifiers;
+    private int minimumActiveModifiers=0;
 
     public Long getId() {
         return id;
@@ -65,6 +65,10 @@ public class GroupModifier {
     }
 
     public int getMinimumActiveModifiers() {
+        if (type!=null){
+            if (type.equalsIgnoreCase("mandatory") && minimumActiveModifiers==0)
+                return 1;
+        }
         return minimumActiveModifiers;
     }
 

@@ -86,7 +86,7 @@
                         android:layout_alignTop="@+id/id_search_EditText"
                         android:layout_alignBottom="@+id/id_search_EditText"
                         android:layout_alignRight="@+id/id_search_EditText"
-                        android:background="@drawable/ic_archive"/>
+                        android:background="@drawable/ic_baseline_filter_list_24"/>
 
                 </RelativeLayout>
 
