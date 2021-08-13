@@ -1,5 +1,6 @@
 package com.example.tongue.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,9 +16,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.example.tongue.adapters.GroupModifierAdapter;
 import com.example.tongue.databinding.ProductFragmentBinding;
 import com.example.tongue.models.GroupModifier;
+import com.example.tongue.models.LineItem;
 import com.example.tongue.models.Modifier;
+import com.example.tongue.models.Product;
 import com.example.tongue.testingdata.ModifiersGenerator;
 import com.example.tongue.viewmodels.ProductViewModel;
+import com.example.tongue.viewmodels.SharedCartViewModel;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
@@ -26,6 +32,8 @@ public class ProductFragment extends Fragment {
     // Fields
     private ProductFragmentBinding binding;
     private ProductViewModel productViewModel;
+    private OnLineItemAddedListener listener;
+    private SharedCartViewModel model;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState){
@@ -46,7 +54,38 @@ public class ProductFragment extends Fragment {
         binding.productFragmentRecyclerView.setLayoutManager(manager);
         binding.productFragmentRecyclerView.setAdapter(adapter);
 
+        // AddProduct Click Listener
+        model = new ViewModelProvider(requireActivity()).get(SharedCartViewModel.class);
+        binding.productFragmentAddLineItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Temporal!!!
+                LineItem item = new LineItem();
+                Product product = new Product();
+                product.setId(1L);
+                item.setQuantity(1);
+                item.setId(2L);
+                item.setProduct(product);
+                listener.OnLineItemAdded(item);
+                model.addItemToCart(item);
+            }
+        });
+
         return root;
 
+    }
+
+    @Override
+    public void onAttach(@NonNull @NotNull Context context) {
+        super.onAttach(context);
+        try {
+            listener = (ProductFragment.OnLineItemAddedListener) context;
+        } catch (ClassCastException e){
+            throw new ClassCastException(context.toString()+ "must implement OnLineItemAddedListener");
+        }
+    }
+
+    public interface OnLineItemAddedListener {
+        public void OnLineItemAdded(LineItem lineItem);
     }
 }

@@ -28,6 +28,7 @@ import com.example.tongue.interfaces.ProductClickListener;
 import com.example.tongue.interfaces.SectionClickListener;
 import com.example.tongue.testingdata.CollectionGenerators;
 import com.example.tongue.testingdata.CollectionProductAllocationGenerator;
+import com.example.tongue.viewmodels.SharedCartViewModel;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -50,6 +51,7 @@ public class StoreVariantDescriptionFragment extends Fragment {
 
         binding = StoreVariantFragmentdescBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+        binding.storeVariantOrderLayout.setVisibility(View.GONE);
 
         // Testing data
         String[] titles = {"Hamburguesas","Pizzas","Sushi","Helados","Hamburguesas","Pizzas"};
@@ -124,6 +126,20 @@ public class StoreVariantDescriptionFragment extends Fragment {
             }
         });
 
+        // SharedCartViewModel observer implementation
+        SharedCartViewModel model = new ViewModelProvider(requireActivity()).get(SharedCartViewModel.class);
+        model.getCart().observe(getViewLifecycleOwner(), cart -> {
+            System.out.println("called");
+            binding.storeVariantOrderLayout.setVisibility(View.VISIBLE);
+        });
+
+        binding.storeVariantOrderLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                System.out.println("test click");
+            }
+        });
+
 
         return root;
     }
@@ -132,6 +148,11 @@ public class StoreVariantDescriptionFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
     }
 
     @Override

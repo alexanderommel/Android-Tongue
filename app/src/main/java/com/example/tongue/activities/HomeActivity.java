@@ -1,5 +1,6 @@
 package com.example.tongue.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -7,14 +8,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.ui.AppBarConfiguration;
 
 import com.example.tongue.R;
 import com.example.tongue.databinding.ActivityHomeBinding;
 import com.example.tongue.fragments.HomeFragment;
+import com.example.tongue.models.StoreVariant;
+import com.example.tongue.viewmodels.SharedCartViewModel;
+import com.example.tongue.viewmodels.SharedCheckoutViewModel;
 import com.google.android.material.navigation.NavigationView;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity implements HomeFragment.OnStoreSelectedListener {
 
     private AppBarConfiguration appBarConfiguration;
     public ActivityHomeBinding binding;
@@ -35,12 +40,15 @@ public class HomeActivity extends AppCompatActivity {
             public void onClick(View v) {
                 drawer.openDrawer(GravityCompat.START);
             }
-
-
-
         });
 
-        NavigationView navigationView = binding.navView;
+        //home.binding.fragmentHomeCheckoutLayout.setVisibility(View.GONE);
 
+    }
+
+    @Override
+    public void onStoreSelected(StoreVariant storeVariant) {
+        Intent intent = new Intent(this, StoreVariantHomeActivity.class);
+        startActivity(intent);
     }
 }

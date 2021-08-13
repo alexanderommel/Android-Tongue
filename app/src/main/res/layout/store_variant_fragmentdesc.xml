@@ -110,7 +110,86 @@
             android:background="@color/tongueLightGrey"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
             android:layout_height="wrap_content">
+
         </androidx.recyclerview.widget.RecyclerView>
+
+    <LinearLayout
+        android:id="@+id/store_variant_orderLayout"
+        android:background="@color/tongueLightGrey"
+        android:layout_width="match_parent"
+        android:layout_gravity="bottom|center"
+        android:paddingBottom="15dp"
+        android:paddingTop="15dp"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:background="@drawable/rounded_border"
+            android:layout_gravity="bottom|center_horizontal"
+            android:backgroundTint="@color/tongueGreen"
+            android:layout_width="320dp"
+            android:paddingBottom="7dp"
+            android:paddingTop="7dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="1"
+                android:alpha="0.5"
+                android:backgroundTint="@color/black"
+                android:layout_centerVertical="true"
+                android:textColor="@color/white"
+                android:paddingEnd="8dp"
+                android:paddingStart="8dp"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/rounded_border"
+                android:layout_alignParentStart="true"
+                android:gravity="center_vertical"
+                android:fontFamily="sans-serif-black"
+                android:textSize="18sp"
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_centerInParent="true"
+                android:paddingEnd="20dp"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="Ver pedido"
+                    android:textColor="@color/white"
+
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:text="Sushi Alex 6 de Diciembre"
+                    android:textColor="@color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:text="$7.50"
+                android:layout_alignParentEnd="true"
+                android:textSize="18sp"
+                android:paddingEnd="10dp"
+                android:textColor="@color/white"
+                android:fontFamily="sans-serif-black"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+
 
 
 

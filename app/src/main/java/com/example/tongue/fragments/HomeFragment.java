@@ -1,5 +1,6 @@
 package com.example.tongue.fragments;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -19,6 +20,8 @@ import com.example.tongue.adapters.StoreAdapter;
 import com.example.tongue.models.StoreVariant;
 import com.example.tongue.interfaces.StoreClickListener;
 import com.example.tongue.testingdata.StoreVariantGenerator;
+import com.example.tongue.viewmodels.SharedCartViewModel;
+import com.example.tongue.viewmodels.SharedCheckoutViewModel;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -30,6 +33,7 @@ public class HomeFragment extends Fragment {
     private HomeViewModel homeViewModel;
     public FragmentHomeBinding binding;
     private StoreAdapter adapter;
+    private OnStoreSelectedListener listener;
 
 
     @Override
@@ -54,13 +58,7 @@ public class HomeFragment extends Fragment {
         adapter = new StoreAdapter(storeVariants, new StoreClickListener() {
             @Override
             public void onStoreVariantClicked(StoreVariant storeVariant, View view) {
-                //System.out.println("binding: "+binding.fragmentHomeRecyclerview.getChildPosition((View) view.getParent()));
-                //int y = (int) view.getY();
-                //System.out.println("Position view: "+y);
-                //binding.getRoot().smoothScrollTo(0,y);
-                Intent intent = new Intent(getContext(), StoreVariantHomeActivity.class);
-                startActivity(intent);
-
+                listener.onStoreSelected(storeVariant);
             }
         });
 
@@ -68,6 +66,12 @@ public class HomeFragment extends Fragment {
 
 
         binding.fragmentHomeRecyclerview.setAdapter(adapter);
+        SharedCheckoutViewModel model = new ViewModelProvider(requireActivity()).get(SharedCheckoutViewModel.class);
+        model.getCheckout().observe(getViewLifecycleOwner(), cart -> {
+            System.out.println("called788");
+            binding.fragmentHomeCheckoutLayout.setVisibility(View.VISIBLE);
+        });
+        //binding.fragmentHomeCheckoutLayout.setVisibility(View.GONE);
 
         return root;
     }
@@ -77,4 +81,19 @@ public class HomeFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
+
+    @Override
+    public void onAttach(@NonNull @NotNull Context context) {
+        super.onAttach(context);
+        try {
+            listener = (HomeFragment.OnStoreSelectedListener) context;
+        } catch (ClassCastException e){
+            throw new ClassCastException(context.toString()+ "must implement OnStoreSelectedListener");
+        }
+    }
+
+    public interface OnStoreSelectedListener {
+        public void onStoreSelected(StoreVariant storeVariant);
+    }
+
 }
