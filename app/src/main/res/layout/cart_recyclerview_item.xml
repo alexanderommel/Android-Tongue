@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/cart_rv_item_productImage"
+        android:layout_width="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_gravity="center_vertical"
+        android:layout_centerVertical="true"
+        android:background="@drawable/pizza"
+        android:layout_height="60dp"/>
+
+    <LinearLayout
+
+        android:layout_width="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="80dp"
+        android:layout_alignParentStart="true"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/cart_rv_item_title"
+            android:layout_width="wrap_content"
+            android:textColor="@color/black"
+            android:layout_height="wrap_content"
+            android:text="Pizza Napolitana"
+            android:textSize="18sp"
+            android:fontFamily="sans-serif-condensed"
+            />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="10dp"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:gravity="bottom"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:id="@+id/cart_rv_item_item_subtotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:text="Subtotal:  "
+                />
+
+            <TextView
+                android:id="@+id/cart_rv_item_price"
+                android:layout_width="wrap_content"
+                android:textSize="18sp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/tongueGreen"
+                android:text="$5.50"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerVertical="true"
+        android:layout_alignParentEnd="true"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="Cantidad"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:paddingTop="10dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="wrap_content"/>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/cart_rv_item_reducebutton"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                app:fabCustomSize="24dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:backgroundTint="@color/tongueLightGrey"
+                app:borderWidth="0dp"
+                android:src="@drawable/ic_baseline_remove_45"
+
+                />
+            <TextView
+                android:id="@+id/cart_rv_item_quantity"
+                android:layout_width="wrap_content"
+                android:text="5"
+                android:layout_gravity="center_vertical"
+                android:textSize="20sp"
+                android:layout_height="wrap_content"/>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/cart_rv_item_increase"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                app:fabCustomSize="24dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:backgroundTint="@color/tongueLightGrey"
+                app:borderWidth="0dp"
+                android:src="@drawable/ic_baseline_add_24"
+
+                />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</RelativeLayout>
