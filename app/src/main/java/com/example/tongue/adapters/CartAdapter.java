@@ -37,8 +37,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull @NotNull CartAdapter.CartViewHolder holder, int position) {
-        holder.productImage.setImageResource(R.drawable.japonesastore);
-        holder.title.setText("Sushi Alex 6 de Diciembre");
+        //holder.productImage.setImageResource(R.drawable.pizza);
+        holder.title.setText("Hamburguesa ranchera");
         holder.quantity.setText("9");
     }
 

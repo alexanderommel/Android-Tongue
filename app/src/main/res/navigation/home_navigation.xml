@@ -18,6 +18,9 @@
         <action
             android:id="@+id/action_nav_home_to_nav_settings2"
             app:destination="@id/nav_settings" />
+        <action
+            android:id="@+id/action_nav_home_to_cartFragment"
+            app:destination="@id/cartFragment" />
     </fragment>
 
     <fragment
@@ -46,6 +49,11 @@
             app:popUpTo="@id/storeVariantDescriptionFragment"
             app:destination="@id/storeVariantDescriptionFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.example.tongue.fragments.CartFragment"
+        android:label="cart_fragment"
+        tools:layout="@layout/cart_fragment" />
 
 
 </navigation>

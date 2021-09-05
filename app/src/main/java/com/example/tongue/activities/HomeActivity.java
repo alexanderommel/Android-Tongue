@@ -29,7 +29,8 @@ public class HomeActivity extends AppCompatActivity
         implements HomeFragment.OnStoreSelectedListener
         ,HomeFragment.OnMenuImageClickListener
         ,StoreVariantDescriptionFragment.OnProductSelectedListener
-        ,ProductFragment.OnLineItemAddedListener{
+        ,ProductFragment.OnLineItemAddedListener
+        ,HomeFragment.OnViewOrderSelectedListener{
 
     // Fields
     private AppBarConfiguration appBarConfiguration;
@@ -71,5 +72,10 @@ public class HomeActivity extends AppCompatActivity
     @Override
     public void onMenuImageClicked() {
         drawer.openDrawer(GravityCompat.START);
+    }
+
+    @Override
+    public void onViewOrderClicked() {
+        navController.navigate(R.id.action_nav_home_to_cartFragment);
     }
 }

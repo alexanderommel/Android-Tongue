@@ -41,6 +41,11 @@ public class CartFragment extends Fragment{
         // Cart recyclerview setting
         LinearLayoutManager manager = new LinearLayoutManager(getContext());
         Cart cart = new Cart();
+        LineItem item = new LineItem();
+        item.setQuantity(5);
+        cart.addItem(item);
+        item.setQuantity(11);
+        cart.addItem(item);
         CartAdapter adapter = new CartAdapter(cart, new CartClickListener() {
             @Override
             public void onIncrease(LineItem lineItem, TextView subtotal) {

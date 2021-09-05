@@ -22,10 +22,12 @@ import com.example.tongue.models.StoreVariant;
 import com.example.tongue.viewmodels.SharedCartViewModel;
 import com.example.tongue.viewmodels.SharedCheckoutViewModel;
 
-public class StoreVariantHomeActivity extends AppCompatActivity
+public class StoreVariantHomeActivity /*extends AppCompatActivity
         implements
-        ProductFragment.OnLineItemAddedListener{
+        ProductFragment.OnLineItemAddedListener*/{
 
+
+            /*
     private StoreVariantHomeBinding binding;
 
     @Override
@@ -52,5 +54,5 @@ public class StoreVariantHomeActivity extends AppCompatActivity
     @Override
     public void OnLineItemAdded(LineItem lineItem) {
     }
-
+*/
 }

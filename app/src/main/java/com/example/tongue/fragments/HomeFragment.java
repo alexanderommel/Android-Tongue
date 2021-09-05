@@ -35,7 +35,7 @@ public class HomeFragment extends Fragment {
     private StoreAdapter adapter;
     private OnStoreSelectedListener listener;
     private OnMenuImageClickListener menuListener;
-
+    private OnViewOrderSelectedListener orderSelectedListener;
 
     @Override
     public void onViewCreated(@NonNull @NotNull View view, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
@@ -74,16 +74,22 @@ public class HomeFragment extends Fragment {
         });
 
         // Recycler view setting
-
-
         binding.fragmentHomeRecyclerview.setAdapter(adapter);
-        SharedCheckoutViewModel model = new ViewModelProvider(requireActivity()).get(SharedCheckoutViewModel.class);
-        model.getCheckout().observe(getViewLifecycleOwner(), cart -> {
-            System.out.println("called788");
+        //SharedCheckoutViewModel model = new ViewModelProvider(requireActivity()).get(SharedCheckoutViewModel.class);
+        //model.getCheckout().observe(getViewLifecycleOwner(), cart -> {
+          //  System.out.println("called788");
+           // binding.fragmentHomeCheckoutLayout.setVisibility(View.VISIBLE);
+        //});
+
+        SharedCartViewModel model = new ViewModelProvider(requireActivity()).get(SharedCartViewModel.class);
+        model.getCart().observe(getViewLifecycleOwner(), cart -> {
+            System.out.println("called");
             binding.fragmentHomeCheckoutLayout.setVisibility(View.VISIBLE);
         });
 
-
+        // View order listener
+        binding.fragmentHomeCheckoutLayout.setOnClickListener(
+                v -> orderSelectedListener.onViewOrderClicked());
         return root;
     }
 
@@ -106,6 +112,11 @@ public class HomeFragment extends Fragment {
         } catch (ClassCastException e){
             throw new ClassCastException(context.toString()+ "must implement OnMenuImageClickListener");
         }
+        try {
+            orderSelectedListener = (HomeFragment.OnViewOrderSelectedListener) context;
+        } catch (ClassCastException e){
+            throw new ClassCastException(context.toString()+ "must implement OnViewOrderClickListener");
+        }
     }
 
     public interface OnStoreSelectedListener {
@@ -114,6 +125,10 @@ public class HomeFragment extends Fragment {
 
     public interface OnMenuImageClickListener {
         public void onMenuImageClicked();
+    }
+
+    public interface OnViewOrderSelectedListener{
+        public void onViewOrderClicked();
     }
 
 }

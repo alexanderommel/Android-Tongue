@@ -1,24 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="71dp"
+    android:layout_marginTop="15dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/cart_rv_item_productImage"
-        android:layout_width="60dp"
+
+    <androidx.cardview.widget.CardView
+        app:cardCornerRadius="10dp"
+        android:id="@+id/imageCardView"
         android:layout_alignParentStart="true"
-        android:layout_gravity="center_vertical"
-        android:layout_centerVertical="true"
-        android:background="@drawable/pizza"
-        android:layout_height="60dp"/>
+        app:cardPreventCornerOverlap="false"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/cart_rv_item_productImage"
+            android:layout_width="56dp"
+
+            android:layout_centerInParent="true"
+            android:background="@drawable/pizza"
+            android:layout_height="56dp"/>
+
+    </androidx.cardview.widget.CardView>
+
+
+
 
     <LinearLayout
 
         android:layout_width="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="80dp"
-        android:layout_alignParentStart="true"
+        android:paddingTop="5dp"
+        android:layout_marginStart="70dp"
+
         android:orientation="vertical"
         android:layout_height="wrap_content">
         <TextView
@@ -27,7 +42,7 @@
             android:textColor="@color/black"
             android:layout_height="wrap_content"
             android:text="Pizza Napolitana"
-            android:textSize="18sp"
+            android:textSize="14sp"
             android:fontFamily="sans-serif-condensed"
             />
 
@@ -46,7 +61,7 @@
                 android:id="@+id/cart_rv_item_item_subtotal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
+                android:textSize="14sp"
                 android:textColor="@color/black"
                 android:text="Subtotal:  "
                 />
@@ -54,7 +69,7 @@
             <TextView
                 android:id="@+id/cart_rv_item_price"
                 android:layout_width="wrap_content"
-                android:textSize="18sp"
+                android:textSize="14sp"
                 android:layout_height="wrap_content"
                 android:textColor="@color/tongueGreen"
                 android:text="$5.50"
@@ -71,14 +86,7 @@
         android:layout_alignParentEnd="true"
         android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:text="Cantidad"
-            android:textColor="@color/black"
-            android:textSize="14sp"
-            android:paddingTop="10dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_height="wrap_content"/>
+
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="wrap_content"
@@ -86,9 +94,9 @@
             android:layout_height="wrap_content">
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/cart_rv_item_reducebutton"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                app:fabCustomSize="24dp"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                app:fabCustomSize="22dp"
                 android:clickable="true"
                 android:focusable="true"
                 android:backgroundTint="@color/tongueLightGrey"
@@ -101,14 +109,14 @@
                 android:layout_width="wrap_content"
                 android:text="5"
                 android:layout_gravity="center_vertical"
-                android:textSize="20sp"
+                android:textSize="17sp"
                 android:layout_height="wrap_content"/>
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/cart_rv_item_increase"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                app:fabCustomSize="24dp"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                app:fabCustomSize="22dp"
                 android:clickable="true"
                 android:focusable="true"
                 android:backgroundTint="@color/tongueLightGrey"
@@ -117,6 +125,20 @@
 
                 />
         </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:layout_alignParentBottom="true"/>
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:paddingTop="15dp"
+        android:background="@color/halfBlack"
+        android:layout_height="0.4dp">
+
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
