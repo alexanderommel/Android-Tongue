@@ -16,7 +16,7 @@ import com.example.tongue.activities.HomeActivity;
 import com.example.tongue.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
-
+    // PRESENTATION ACTIVITY
     private ActivityMainBinding binding;
 
     @Override

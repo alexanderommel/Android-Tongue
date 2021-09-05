@@ -22,10 +22,6 @@
         <activity android:name=".activities.HomeActivity"
             android:label="Home"
             android:theme="@style/Theme.Tongue.NoActionBar"/>
-        <activity android:name=".activities.StoreVariantHomeActivity"
-            android:label="Store"
-            android:theme="@style/Theme.Tongue.NoActionBar"
-            />
 
     </application>
 

@@ -1,7 +1,6 @@
 package com.example.tongue.fragments;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,7 +12,6 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.example.tongue.activities.StoreVariantHomeActivity;
 import com.example.tongue.databinding.FragmentHomeBinding;
 import com.example.tongue.viewmodels.HomeViewModel;
 import com.example.tongue.adapters.StoreAdapter;
@@ -21,7 +19,6 @@ import com.example.tongue.models.StoreVariant;
 import com.example.tongue.interfaces.StoreClickListener;
 import com.example.tongue.testingdata.StoreVariantGenerator;
 import com.example.tongue.viewmodels.SharedCartViewModel;
-import com.example.tongue.viewmodels.SharedCheckoutViewModel;
 
 import org.jetbrains.annotations.NotNull;
 
