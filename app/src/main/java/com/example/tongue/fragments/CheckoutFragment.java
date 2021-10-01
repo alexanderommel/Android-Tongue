@@ -11,9 +11,11 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.example.tongue.adapters.CheckoutCartAdapter;
 import com.example.tongue.adapters.GroupModifierAdapter;
 import com.example.tongue.databinding.FragmentCheckoutBinding;
 import com.example.tongue.databinding.ProductFragmentBinding;
+import com.example.tongue.models.Cart;
 import com.example.tongue.models.LineItem;
 import com.example.tongue.models.Modifier;
 import com.example.tongue.models.Product;
@@ -34,10 +36,20 @@ public class CheckoutFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState){
 
         // Custom setting
-        binding = FragmentCheckoutBinding.inflate(inflater, (ViewGroup) container, false);
+        binding = FragmentCheckoutBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-
+        // Cart recyclerview setting
+        LinearLayoutManager manager = new LinearLayoutManager(getContext());
+        Cart cart = new Cart();
+        LineItem item = new LineItem();
+        item.setQuantity(5);
+        cart.addItem(item);
+        item.setQuantity(11);
+        cart.addItem(item);
+        CheckoutCartAdapter adapter = new CheckoutCartAdapter(cart);
+        binding.cartSection.checkoutCartSecRecyclerview.setLayoutManager(manager);
+        binding.cartSection.checkoutCartSecRecyclerview.setAdapter(adapter);
 
         return root;
 

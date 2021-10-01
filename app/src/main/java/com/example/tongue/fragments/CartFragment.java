@@ -67,8 +67,7 @@ public class CartFragment extends Fragment{
             @Override
             public void onClick(View v) {
                 // Temporal!!!
-                Cart cart1 = new Cart();
-                listener.OnCartDetailsClicked(cart1);
+                listener.OnCartDetailsClicked(cart);
             }
         });
 

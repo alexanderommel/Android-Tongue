@@ -34,7 +34,7 @@
                     android:layout_width="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="10dp"
-                    android:background="@drawable/ic_placeholder"
+                    android:background="@drawable/ic_summary24"
                     android:layout_height="wrap_content"/>
                 <TextView
                     android:layout_width="wrap_content"
@@ -45,8 +45,8 @@
                     android:textColor="@color/black"
                     android:layout_marginLeft="35dp"
                     android:gravity="center_vertical"
-                    android:layout_centerHorizontal="true"
-                    android:text="Sushi Alex 6 de Diciembre"
+
+                    android:text="Resumen"
                     android:layout_height="35dp"/>
 
 
@@ -62,66 +62,6 @@
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="15dp"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:textColor="@color/black"
-                android:textSize="14sp"
-                android:text="Dirección de entrega:"
-                android:layout_height="wrap_content"/>
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="15dp"/>
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:text="Nayon Calle Quito"
-                    android:padding="10dp"
-                    android:layout_marginLeft="20dp"
-                    android:textColor="@color/black"
-                    android:textSize="14sp"
-                    android:enabled="false"
-                    android:background="@color/tongueLightGrey"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="20dp"
-                    android:layout_height="wrap_content"/>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_alignParentRight="true"
-                    android:layout_width="24dp"
-                    app:cardCornerRadius="14dp"
-                    android:layout_marginRight="30dp"
-                    android:layout_centerVertical="true"
-                    android:layout_height="24dp">
-
-                    <ImageButton
-                        android:layout_width="wrap_content"
-                        android:background="@drawable/ic_baseline_arrow_drop_down_24"
-                        android:layout_height="wrap_content"/>
-
-                </androidx.cardview.widget.CardView>
-
-
-
-            </RelativeLayout>
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="15dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:text="Tiempo de entrega: 40-50 min"
-                android:layout_height="wrap_content"/>
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="15dp"/>
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -132,7 +72,116 @@
                     android:layout_width="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:fontFamily="@font/roboto"
-                    android:textSize="16sp"
+                    android:textSize="13sp"
+                    android:text="Subtotal"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="12,50$"
+                    android:textSize="13sp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="22dp"
+                    android:layout_height="wrap_content"/>
+
+            </RelativeLayout>
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:fontFamily="@font/roboto"
+                    android:textSize="13sp"
+                    android:text="Servicio"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="1,50$"
+                    android:textSize="13sp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="22dp"
+                    android:layout_height="wrap_content"/>
+
+            </RelativeLayout>
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:fontFamily="@font/roboto"
+                    android:textSize="13sp"
+                    android:text="Envio"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="2,20$"
+                    android:textSize="13sp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="22dp"
+                    android:layout_height="wrap_content"/>
+
+            </RelativeLayout>
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:fontFamily="@font/roboto"
+                    android:textSize="13sp"
+                    android:text="Descuentos"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="7,00$"
+                    android:textSize="13sp"
+                    android:textColor="@color/tongueGreen"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="22dp"
+                    android:layout_height="wrap_content"/>
+
+            </RelativeLayout>
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:fontFamily="@font/roboto"
+                    android:textSize="14sp"
                     android:textColor="@color/black"
                     android:text="Total a pagar"
                     android:layout_height="wrap_content"/>
@@ -149,7 +198,7 @@
                     android:layout_width="wrap_content"
                     android:text="12,50$"
                     android:textColor="@color/black"
-                    android:textSize="16sp"
+                    android:textSize="15sp"
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="22dp"
                     android:layout_height="wrap_content"/>

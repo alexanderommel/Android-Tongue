@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,10 +15,24 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.Dash;
+import com.google.android.gms.maps.model.Gap;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.PatternItem;
+import com.google.android.gms.maps.model.PolygonOptions;
+import com.google.android.gms.maps.model.Polyline;
+import com.google.android.gms.maps.model.PolylineOptions;
+import com.google.maps.android.SphericalUtil;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class CheckoutMapsFragment extends Fragment {
+
+    //Fields
 
     private OnMapReadyCallback callback = new OnMapReadyCallback() {
 
@@ -32,10 +47,14 @@ public class CheckoutMapsFragment extends Fragment {
          */
         @Override
         public void onMapReady(GoogleMap googleMap) {
-            LatLng sydney = new LatLng(-0.17675340625709623, -78.47893045837151);
-            googleMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Quicentro"));
-            //googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
-            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney,14));
+            LatLng origin = new LatLng(-0.2086989341940772, -78.4889380995957);
+            LatLng restaurant = new LatLng(-0.17674340625709623, -78.47893045337151);
+            googleMap.addMarker(new MarkerOptions().position(origin).title("Origin")).
+                    setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
+            googleMap.addMarker(new MarkerOptions().position(restaurant).title("Store")).
+                    setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));;
+            //googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(origin,12));
+            drawCurvedPolyline(googleMap,origin,restaurant,0.65);
         }
     };
 
@@ -56,4 +75,32 @@ public class CheckoutMapsFragment extends Fragment {
             mapFragment.getMapAsync(callback);
         }
     }
+
+    private void drawCurvedPolyline(GoogleMap googleMap, LatLng p1, LatLng p2, double k){
+
+        // Maths
+        double distance = SphericalUtil.computeDistanceBetween(p1,p2);
+        double heading = SphericalUtil.computeHeading(p1,p2);
+        LatLng center = SphericalUtil.computeOffset(p1,distance*0.5,heading);
+        double x = (1-k*k)*distance*0.5/(2*k);
+        double r = (1+k*k)*distance*0.5/(2*k);
+        LatLng c = SphericalUtil.computeOffset(center, x, heading + 90.0);
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(c,12));
+        // Polyline
+        PolylineOptions options = new PolylineOptions();
+
+        List<PatternItem> patternItemList = Arrays.<PatternItem>asList(new Dash(30), new Gap(20));
+        double h1 = SphericalUtil.computeHeading(c,p1);
+        double h2 = SphericalUtil.computeHeading(c,p2);
+        int num_points = 150;
+        double step = (h2-h1)/(num_points);
+
+        for (int i = 0; i < num_points; i++){
+            LatLng pi = SphericalUtil.computeOffset(c,r,h1+i*step);
+            options.add(pi);
+        }
+        googleMap.addPolyline(options.width(5).color(Color.BLACK).geodesic(false).pattern(patternItemList));
+
+    }
+
 }

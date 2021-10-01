@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:layout_marginTop="5dp"
+
+    android:id="@+id/checkout_cart_item"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="24dp"
+        android:layout_centerVertical="true"
+        app:cardCornerRadius="15dp"
+        android:layout_height="24dp">
+        <TextView
+            android:id="@+id/checkout_cart_item_quantity"
+            android:layout_width="24dp"
+            android:text="5"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:background="@color/tongueLightGrey"
+            android:layout_height="24dp"/>
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/checkout_cart_item_title"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:gravity="center_vertical"
+        android:fontFamily="@font/roboto"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="40dp"
+        android:text="Hamburguesa granjera"
+        />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_height="41dp"
+        >
+
+        <TextView
+            android:id="@+id/checkout_cart_item_total"
+            android:layout_width="match_parent"
+            android:layout_gravity="center_vertical"
+            android:textSize="14sp"
+            android:fontFamily="@font/roboto"
+            android:textColor="@color/black"
+            android:layout_height="20dp"
+            android:text="8,50$"
+            />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+        <TextView
+            android:id="@+id/checkout_cart_item_subtotal"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:textSize="12sp"
+            android:text="12,00$"
+            />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+</RelativeLayout>
