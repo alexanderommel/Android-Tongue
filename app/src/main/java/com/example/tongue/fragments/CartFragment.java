@@ -1,5 +1,6 @@
 package com.example.tongue.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +18,7 @@ import com.example.tongue.databinding.CartFragmentBinding;
 import com.example.tongue.interfaces.CartClickListener;
 import com.example.tongue.models.Cart;
 import com.example.tongue.models.LineItem;
+import com.example.tongue.models.Product;
 import com.example.tongue.viewmodels.CartViewModel;
 
 import org.jetbrains.annotations.NotNull;
@@ -26,6 +28,7 @@ public class CartFragment extends Fragment{
     //Fields
     private CartFragmentBinding binding;
     private CartViewModel viewModel;
+    private OnCartDetailsListener listener;
 
     //Methods
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -60,6 +63,33 @@ public class CartFragment extends Fragment{
         binding.cartFragmentRecyclerView.setAdapter(adapter);
 
 
+        binding.cartFragmentShippingdetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Temporal!!!
+                Cart cart1 = new Cart();
+                listener.OnCartDetailsClicked(cart1);
+            }
+        });
+
+
+
         return root;
     }
+
+    @Override
+    public void onAttach(@NonNull @NotNull Context context) {
+        super.onAttach(context);
+        try {
+            listener = (OnCartDetailsListener) context;
+        } catch (ClassCastException e){
+            throw new ClassCastException(context.toString()+ "must implement OnCartDetailsListener");
+        }
+    }
+
+    public interface OnCartDetailsListener {
+        public void OnCartDetailsClicked(Cart cart);
+    }
+
+
 }

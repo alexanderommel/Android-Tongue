@@ -15,9 +15,11 @@ import androidx.navigation.ui.AppBarConfiguration;
 
 import com.example.tongue.R;
 import com.example.tongue.databinding.ActivityHomeBinding;
+import com.example.tongue.fragments.CartFragment;
 import com.example.tongue.fragments.HomeFragment;
 import com.example.tongue.fragments.ProductFragment;
 import com.example.tongue.fragments.StoreVariantDescriptionFragment;
+import com.example.tongue.models.Cart;
 import com.example.tongue.models.LineItem;
 import com.example.tongue.models.Product;
 import com.example.tongue.models.StoreVariant;
@@ -30,7 +32,8 @@ public class HomeActivity extends AppCompatActivity
         ,HomeFragment.OnMenuImageClickListener
         ,StoreVariantDescriptionFragment.OnProductSelectedListener
         ,ProductFragment.OnLineItemAddedListener
-        ,HomeFragment.OnViewOrderSelectedListener{
+        ,HomeFragment.OnViewOrderSelectedListener
+        , CartFragment.OnCartDetailsListener {
 
     // Fields
     private AppBarConfiguration appBarConfiguration;
@@ -77,5 +80,10 @@ public class HomeActivity extends AppCompatActivity
     @Override
     public void onViewOrderClicked() {
         navController.navigate(R.id.action_nav_home_to_cartFragment);
+    }
+
+    @Override
+    public void OnCartDetailsClicked(Cart cart) {
+        navController.navigate(R.id.action_cartFragment_to_checkoutFragment);
     }
 }

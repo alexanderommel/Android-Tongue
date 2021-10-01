@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tongue.R;
 import com.example.tongue.databinding.StoreVariantFragmentdescBinding;
+import com.example.tongue.models.Cart;
 import com.example.tongue.viewmodels.HomeViewModel;
 import com.example.tongue.adapters.CollectionAdapter;
 import com.example.tongue.adapters.SectionAdapter;
@@ -40,6 +41,7 @@ public class StoreVariantDescriptionFragment extends Fragment {
     private HomeViewModel homeViewModel;
     private StoreVariantFragmentdescBinding binding;
     private OnProductSelectedListener listener;
+    private OnCartDetailsListener cartListener;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -167,6 +169,10 @@ public class StoreVariantDescriptionFragment extends Fragment {
 
     public interface OnProductSelectedListener {
         public void onProductSelected(Product product);
+    }
+
+    public interface OnCartDetailsListener {
+        public void OnCartDetailsClicked(Cart cart);
     }
 
 }
